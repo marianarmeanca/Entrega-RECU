@@ -1,0 +1,237 @@
+:root {
+    --color-menu: #66ff66;
+    --color-elem1: #6666ff;
+    --color-elem2: #ba006c;
+    --color-elem3: #fffb00;
+    --color-elem4: #ffaa44;
+    --color-elem5: #e80606;
+    --color-elem6: #ff66ff;
+    --color-elem7: #44ddaa;
+    --color-galeria: #ffff66;
+    --gap-grid: 10px;
+    --hover-color: red;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+nav {
+    background-color: var(--color-menu);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    margin-bottom: 20px;
+}
+
+nav a {
+    text-decoration: underline;
+    color: #000;
+    font-size: 1rem;
+}
+
+nav a:hover {
+    color: var(--hover-color);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas:
+        "elem2 elem3 elem1"
+        "elem2 elem4 elem6"
+        "elem2 elem4 elem7"
+        "elem5 elem5 elem5";
+    gap: var(--gap-grid);
+    margin: 0 160px 20px 160px;
+}
+
+.element1 {
+    grid-area: elem1;
+    background-color: var(--color-elem1);
+    padding: 20px;
+    color: white;
+}
+
+.element2 {
+    grid-area: elem2;
+    background-color: var(--color-elem2);
+    padding: 20px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.element3 {
+    grid-area: elem3;
+    background-color: var(--color-elem3);
+    padding: 20px;
+}
+
+.element4 {
+    grid-area: elem4;
+    background-color: var(--color-elem4);
+    padding: 20px;
+    text-align: center;
+}
+
+.element5 {
+    grid-area: elem5;
+    background-color: var(--color-elem5);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.element6 {
+    grid-area: elem6;
+    background-color: var(--color-elem6);
+    padding: 20px;
+}
+
+.element7 {
+    grid-area: elem7;
+    background-color: var(--color-elem7);
+    padding: 20px;
+}
+
+.element1 h2,
+.element2 h2,
+.element3 h2,
+.element4 h2,
+.element5 h2,
+.element6 h2,
+.element7 h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.element4 img {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+}
+
+.element4 a {
+    display: block;
+    text-align: center;
+    text-decoration: underline;
+    color: #000;
+    margin-top: 8px;
+}
+
+.element4 a:hover {
+    color: var(--hover-color);
+}
+
+.element5 .autor {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.element1 p,
+.element3 p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.galeria {
+    background-color: var(--color-galeria);
+    margin: 0 160px 20px 160px;
+    padding: 20px;
+}
+
+.galeria h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.galeria-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+
+.galeria-grid img {
+    width: calc(33.333% - 40px);
+    height: auto;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        margin-bottom: 0;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "elem1 elem2"
+            "elem1 elem3"
+            "elem4 elem4"
+            "elem5 elem5"
+            "elem7 elem6";
+        gap: 0;
+        margin: 0;
+    }
+
+    .element5 {
+        justify-content: center;
+    }
+
+    .element5 .autor {
+        display: none;
+    }
+    
+    .galeria {
+        margin: 0;
+    }
+
+    .galeria-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .galeria-grid img {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+
+    nav {
+        background-color: #009c00;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px;
+        margin-bottom: 0;
+    }
+
+    nav a {
+        color: #ffffff;
+        font-size: 1.1rem;
+    }
+}
+
